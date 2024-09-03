@@ -1,19 +1,21 @@
-const express = require('express')
-const tweetRoute = express.Router()
-const { getAllTweets,getTweetById,createTweet } = require("../controllers/tweet.js")
+const express = require("express");
+const tweetRoute = express.Router();
+const {
+  getAllTweets,
+  getTweetById,
+  createTweet,
+  deleteTweet,
+  updateTweet,
+} = require("../controllers/tweet.js");
 
-tweetRoute.get('/',getAllTweets)
+tweetRoute.get("/", getAllTweets);
 
-tweetRoute.get('/:id', getTweetById)
+tweetRoute.get("/:id", getTweetById);
 
-tweetRoute.post('/',createTweet)
+tweetRoute.post("/", createTweet);
 
-tweetRoute.delete('/:userId', (req, res) => {
-    res.send('Hello World 2!')
-})
+tweetRoute.delete("/:id", deleteTweet);
 
-tweetRoute.put('/:userId', (req, res) => {
-    res.send('Hello World 2!')
-})
+tweetRoute.put("/:id", updateTweet);
 
-module.exports = tweetRoute
+module.exports = tweetRoute;
